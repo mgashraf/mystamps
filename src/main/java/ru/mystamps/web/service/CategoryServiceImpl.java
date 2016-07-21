@@ -35,7 +35,6 @@ import lombok.RequiredArgsConstructor;
 import ru.mystamps.web.dao.CategoryDao;
 import ru.mystamps.web.dao.dto.AddCategoryDbDto;
 import ru.mystamps.web.dao.dto.LinkEntityDto;
-import ru.mystamps.web.dao.dto.SelectEntityDto;
 import ru.mystamps.web.dao.dto.UrlEntityDto;
 import ru.mystamps.web.service.dto.AddCategoryDto;
 import ru.mystamps.web.support.spring.security.HasAuthority;
@@ -78,12 +77,6 @@ public class CategoryServiceImpl implements CategoryService {
 		LOG.info("Category #{} has been created ({})", id, category);
 		
 		return new UrlEntityDto(id, slug);
-	}
-	
-	@Override
-	@Transactional(readOnly = true)
-	public Iterable<SelectEntityDto> findAllAsSelectEntities(String lang) {
-		return categoryDao.findAllAsSelectEntities(lang);
 	}
 	
 	@Override

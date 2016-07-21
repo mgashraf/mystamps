@@ -24,7 +24,6 @@ import ru.mystamps.web.dao.CategoryDao
 import ru.mystamps.web.dao.dto.AddCategoryDbDto
 import ru.mystamps.web.model.AddCategoryForm
 import ru.mystamps.web.dao.dto.LinkEntityDto
-import ru.mystamps.web.dao.dto.SelectEntityDto
 import ru.mystamps.web.dao.dto.UrlEntityDto
 import ru.mystamps.web.tests.DateUtils
 import ru.mystamps.web.util.SlugUtils
@@ -189,40 +188,6 @@ class CategoryServiceImplTest extends Specification {
 				assert category?.updatedBy == expectedUserId
 				return true
 			}) >> 80
-	}
-	
-	//
-	// Tests for findAllAsSelectEntities(String)
-	//
-	
-	def "findAllAsSelectEntities(String) should call dao"() {
-		given:
-			SelectEntityDto category1 = new SelectEntityDto(1, 'First Category')
-		and:
-			SelectEntityDto category2 = new SelectEntityDto(2, 'Second Category')
-		and:
-			List<SelectEntityDto> expectedCategories = [ category1, category2 ]
-		and:
-			categoryDao.findAllAsSelectEntities(_ as String) >> expectedCategories
-		when:
-			Iterable<SelectEntityDto> resultCategories = service.findAllAsSelectEntities('fr')
-		then:
-			resultCategories == expectedCategories
-	}
-	
-	@Unroll
-	def "findAllAsSelectEntities(String) should pass language '#expectedLanguage' to dao"(String expectedLanguage) {
-		when:
-			service.findAllAsSelectEntities(expectedLanguage)
-		then:
-			1 * categoryDao.findAllAsSelectEntities({ String language ->
-				assert language == expectedLanguage
-				return true
-			})
-		where:
-			expectedLanguage | _
-			'ru'             | _
-			null             | _
 	}
 	
 	//

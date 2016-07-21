@@ -37,7 +37,6 @@ import lombok.RequiredArgsConstructor;
 import ru.mystamps.web.dao.CategoryDao;
 import ru.mystamps.web.dao.dto.AddCategoryDbDto;
 import ru.mystamps.web.dao.dto.LinkEntityDto;
-import ru.mystamps.web.dao.dto.SelectEntityDto;
 
 @RequiredArgsConstructor
 @SuppressWarnings("PMD.AvoidDuplicateLiterals")
@@ -65,9 +64,6 @@ public class JdbcCategoryDao implements CategoryDao {
 	
 	@Value("${category.count_stamps_by_categories}")
 	private String countStampsByCategoriesSql;
-	
-	@Value("${category.find_all_categories_names_with_ids}")
-	private String findCategoriesNamesWithIdsSql;
 	
 	@Value("${category.find_all_categories_names_with_slug}")
 	private String findCategoriesNamesWithSlugSql;
@@ -158,15 +154,6 @@ public class JdbcCategoryDao implements CategoryDao {
 			countStampsByCategoriesSql,
 			params,
 			RowMappers::forNameAndCounter
-		);
-	}
-	
-	@Override
-	public Iterable<SelectEntityDto> findAllAsSelectEntities(String lang) {
-		return jdbcTemplate.query(
-			findCategoriesNamesWithIdsSql,
-			Collections.singletonMap("lang", lang),
-			RowMappers::forSelectEntityDto
 		);
 	}
 	

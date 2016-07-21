@@ -21,13 +21,11 @@ import java.util.Date;
 import java.util.List;
 
 import ru.mystamps.web.dao.dto.LinkEntityDto;
-import ru.mystamps.web.dao.dto.SelectEntityDto;
 import ru.mystamps.web.dao.dto.UrlEntityDto;
 import ru.mystamps.web.service.dto.AddCategoryDto;
 
 public interface CategoryService {
 	UrlEntityDto add(AddCategoryDto dto, Integer userId);
-	Iterable<SelectEntityDto> findAllAsSelectEntities(String lang);
 	Iterable<LinkEntityDto> findAllAsLinkEntities(String lang);
 	LinkEntityDto findOneAsLinkEntity(String slug, String lang);
 	long countAll();
