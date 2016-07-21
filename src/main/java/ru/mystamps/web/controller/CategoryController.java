@@ -81,7 +81,7 @@ public class CategoryController {
 		UrlEntityDto categoryUrl = categoryService.add(form, currentUserId);
 		
 		String dstUrl = UriComponentsBuilder.fromUriString(Url.INFO_CATEGORY_PAGE)
-			.buildAndExpand(categoryUrl.getId(), categoryUrl.getSlug())
+			.buildAndExpand(categoryUrl.getSlug())
 			.toString();
 		
 		redirectAttributes.addFlashAttribute("justAddedCategory", true);
@@ -109,7 +109,6 @@ public class CategoryController {
 		String lang = LocaleUtils.getLanguageOrNull(userLocale);
 		Iterable<SeriesInfoDto> series = seriesService.findByCategoryId(id, lang);
 		
-		model.addAttribute("categoryId", id);
 		model.addAttribute("categorySlug", slug);
 		model.addAttribute("categoryName", name);
 		model.addAttribute("seriesOfCategory", series);

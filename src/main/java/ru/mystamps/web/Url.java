@@ -58,8 +58,8 @@ public final class Url {
 	public static final String SEARCH_SERIES_BY_CATALOG      = "/series/search/by_catalog";
 	
 	public static final String ADD_CATEGORY_PAGE     = "/category/add";
-	public static final String INFO_CATEGORY_PAGE    = "/category/{id}/{slug}";
 	public static final String LIST_CATEGORIES_PAGE  = "/category/list";
+	public static final String INFO_CATEGORY_PAGE    = "/category/{slug}";
 	
 	public static final String ADD_COUNTRY_PAGE      = "/country/add";
 	public static final String LIST_COUNTRIES_PAGE   = "/country/list";
