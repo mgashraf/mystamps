@@ -73,7 +73,7 @@ public class JdbcCategoryDao implements CategoryDao {
 	private String findCategoriesNamesWithSlugSql;
 	
 	@Value("${category.find_category_link_info_by_slug}")
-	private String findCategoryLinkEntityBySlugSql;
+	private String findLinkEntityBySlugSql;
 	
 	@Override
 	public Integer add(AddCategoryDbDto category) {
@@ -187,7 +187,7 @@ public class JdbcCategoryDao implements CategoryDao {
 		
 		try {
 			return jdbcTemplate.queryForObject(
-				findCategoryLinkEntityBySlugSql,
+				findLinkEntityBySlugSql,
 				params,
 				RowMappers::forLinkEntityDto
 			);

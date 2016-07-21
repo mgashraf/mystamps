@@ -60,6 +60,8 @@ public final class Url {
 	public static final String ADD_CATEGORY_PAGE     = "/category/add";
 	public static final String LIST_CATEGORIES_PAGE  = "/category/list";
 	public static final String INFO_CATEGORY_PAGE    = "/category/{slug}";
+	// For backward compatibility
+	public static final String INFO_CATEGORY_BY_ID_PAGE = "/category/{id}/{slug}";
 	
 	public static final String ADD_COUNTRY_PAGE      = "/country/add";
 	public static final String LIST_COUNTRIES_PAGE   = "/country/list";
