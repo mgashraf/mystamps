@@ -34,5 +34,5 @@ public interface CategoryDao {
 	List<Object[]> getStatisticsOf(Integer collectionId, String lang);
 	Iterable<SelectEntityDto> findAllAsSelectEntities(String lang);
 	Iterable<LinkEntityDto> findAllAsLinkEntities(String lang);
-	LinkEntityDto findOneAsLinkEntity(Integer categoryId, String lang);
+	LinkEntityDto findOneAsLinkEntity(String slug, String lang);
 }

@@ -29,7 +29,7 @@ public interface CategoryService {
 	UrlEntityDto add(AddCategoryDto dto, Integer userId);
 	Iterable<SelectEntityDto> findAllAsSelectEntities(String lang);
 	Iterable<LinkEntityDto> findAllAsLinkEntities(String lang);
-	LinkEntityDto findOneAsLinkEntity(Integer categoryId, String lang);
+	LinkEntityDto findOneAsLinkEntity(String slug, String lang);
 	long countAll();
 	long countCategoriesOf(Integer collectionId);
 	long countByName(String name);

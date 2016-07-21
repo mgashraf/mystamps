@@ -263,26 +263,32 @@ class CategoryServiceImplTest extends Specification {
 	// Tests for findOneAsLinkEntity()
 	//
 	
-	def "findOneAsLinkEntity() should throw exception when category id is null"() {
+	@Unroll
+	def "findOneAsLinkEntity() should throw exception when category slug is null"(String slug) {
 		when:
-			service.findOneAsLinkEntity(null, 'ru')
+			service.findOneAsLinkEntity(slug, 'ru')
 		then:
 			thrown IllegalArgumentException
+		where:
+			slug | _
+			' '  | _
+			''   | _
+			null | _
 	}
 	
 	def "findOneAsLinkEntity() should pass arguments to dao"() {
 		given:
-			Integer expectedCategoryId = 15
+			String expectedSlug = 'people'
 		and:
 			String expectedLang = 'fr'
 		and:
 			LinkEntityDto expectedDto = TestObjects.createLinkEntityDto()
 		when:
-			LinkEntityDto actualDto = service.findOneAsLinkEntity(expectedCategoryId, expectedLang)
+			LinkEntityDto actualDto = service.findOneAsLinkEntity(expectedSlug, expectedLang)
 		then:
 			1 * categoryDao.findOneAsLinkEntity(
-				{ Integer categoryId ->
-					assert expectedCategoryId == categoryId
+				{ String slug ->
+					assert expectedSlug == slug
 					return true
 				},
 				{ String lang ->
