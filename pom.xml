@@ -351,6 +351,8 @@
 		<cglib.version>2.2.2</cglib.version>
 		<checkstyle.plugin.version>2.17</checkstyle.plugin.version>
 		<clean.plugin.version>3.0.0</clean.plugin.version>
+		<codenarc.plugin.version>0.22-1</codenarc.plugin.version>
+		<codenarc.version>0.25.2</codenarc.version>
 		
 		<!-- Redefine default value from spring-boot-dependencies (https://git.io/vKAiK) -->
 		<commons-dbcp.version>1.4</commons-dbcp.version>
@@ -742,6 +744,20 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>codenarc-maven-plugin</artifactId>
+				<version>${codenarc.plugin.version}</version>
+				<configuration>
+					<codeNarcVersion>${codenarc.version}</codeNarcVersion>
+					<groovyVersion>${groovy.version}</groovyVersion>
+					<sourceDirectory>src/test/groovy</sourceDirectory>
+					<rulesetfiles>
+						rulesets/basic.xml,rulesets/braces.xml,rulesets/concurrency.xml,rulesets/convention.xml,rulesets/design.xml,rulesets/dry.xml,rulesets/enhanced.xml,rulesets/exceptions.xml,rulesets/formatting.xml,rulesets/generic.xml,rulesets/groovyism.xml,rulesets/imports.xml,rulesets/jdbc.xml,rulesets/logging.xml,rulesets/naming.xml,rulesets/security.xml,rulesets/serialization.xml,rulesets/unnecessary.xml,rulesets/unused.xml
+					</rulesetfiles>
+				</configuration>
 			</plugin>
 			
 			<plugin>
