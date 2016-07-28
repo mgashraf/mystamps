@@ -122,7 +122,7 @@ class CollectionServiceImplTest extends Specification {
 		and:
 			UrlEntityDto url = TestObjects.createUrlEntityDto()
 		and:
-			Integer expectedCollectionId = url.getId()
+			Integer expectedCollectionId = url.id
 		and:
 			collectionDao.findCollectionUrlEntityByUserId(_ as Integer) >> url
 		when:
@@ -185,7 +185,7 @@ class CollectionServiceImplTest extends Specification {
 		and:
 			UrlEntityDto url = TestObjects.createUrlEntityDto()
 		and:
-			Integer expectedCollectionId = url.getId()
+			Integer expectedCollectionId = url.id
 		and:
 			collectionDao.findCollectionUrlEntityByUserId(_ as Integer) >> url
 		when:

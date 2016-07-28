@@ -129,7 +129,7 @@ class SeriesServiceImplTest extends Specification {
 		given:
 			LinkEntityDto country = TestObjects.createLinkEntityDto()
 		and:
-			Integer expectedCountryId = country.getId()
+			Integer expectedCountryId = country.id
 		and:
 			form.setCountry(country)
 		when:
@@ -175,7 +175,7 @@ class SeriesServiceImplTest extends Specification {
 		given:
 			LinkEntityDto category = TestObjects.createLinkEntityDto()
 		and:
-			Integer expectedCategoryId = category.getId()
+			Integer expectedCategoryId = category.id
 		and:
 			form.setCategory(category)
 		when:
