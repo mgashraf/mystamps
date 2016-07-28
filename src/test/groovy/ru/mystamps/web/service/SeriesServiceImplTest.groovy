@@ -798,11 +798,11 @@ class SeriesServiceImplTest extends Specification {
 		given:
 			String expectedLang = 'en'
 		and:
-			List<Integer> expectedSeriesIds = [ 1 ] as List
+			List<Integer> expectedSeriesIds = [ 1 ]
 		and:
 			seriesDao.findSeriesIdsByMichelNumberCode(_ as String) >> expectedSeriesIds
 		and:
-			List<SeriesInfoDto> expectedResult = [] as List
+			List<SeriesInfoDto> expectedResult = []
 		when:
 			List<SeriesInfoDto> result = service.findByMichelNumber('5', expectedLang)
 		then:
@@ -861,11 +861,11 @@ class SeriesServiceImplTest extends Specification {
 		given:
 			String expectedLang = 'en'
 		and:
-			List<Integer> expectedSeriesIds = [ 1 ] as List
+			List<Integer> expectedSeriesIds = [ 1 ]
 		and:
 			seriesDao.findSeriesIdsByScottNumberCode(_ as String) >> expectedSeriesIds
 		and:
-			List<SeriesInfoDto> expectedResult = [] as List
+			List<SeriesInfoDto> expectedResult = []
 		when:
 			List<SeriesInfoDto> result = service.findByScottNumber('5', expectedLang)
 		then:
@@ -924,11 +924,11 @@ class SeriesServiceImplTest extends Specification {
 		given:
 			String expectedLang = 'en'
 		and:
-			List<Integer> expectedSeriesIds = [ 1 ] as List
+			List<Integer> expectedSeriesIds = [ 1 ]
 		and:
 			seriesDao.findSeriesIdsByYvertNumberCode(_ as String) >> expectedSeriesIds
 		and:
-			List<SeriesInfoDto> expectedResult = [] as List
+			List<SeriesInfoDto> expectedResult = []
 		when:
 			List<SeriesInfoDto> result = service.findByYvertNumber('5', expectedLang)
 		then:
@@ -987,11 +987,11 @@ class SeriesServiceImplTest extends Specification {
 		given:
 			String expectedLang = 'en'
 		and:
-			List<Integer> expectedSeriesIds = [ 1 ] as List
+			List<Integer> expectedSeriesIds = [ 1 ]
 		and:
 			seriesDao.findSeriesIdsByGibbonsNumberCode(_ as String) >> expectedSeriesIds
 		and:
-			List<SeriesInfoDto> expectedResult = [] as List
+			List<SeriesInfoDto> expectedResult = []
 		when:
 			List<SeriesInfoDto> result = service.findByGibbonsNumber('5', expectedLang)
 		then:
